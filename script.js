@@ -1,5 +1,6 @@
 (function () {
   const video = document.querySelector(".hero-video");
+  const soundToggle = document.querySelector(".sound-toggle");
 
   if (!video) {
     return;
@@ -31,17 +32,33 @@
 
     video.src = src;
     video.load();
-    playWithSound();
-  }
-
-  function playWithSound() {
-    video.muted = false;
-    video.volume = 1;
     video.play().catch(() => {});
   }
 
+  function syncSoundButton() {
+    if (!soundToggle) {
+      return;
+    }
+
+    const isUnmuted = !video.muted;
+    soundToggle.classList.toggle("is-unmuted", isUnmuted);
+    soundToggle.setAttribute("aria-pressed", String(isUnmuted));
+    soundToggle.setAttribute("aria-label", isUnmuted ? "Mute video" : "Unmute video");
+  }
+
+  function toggleSound(event) {
+    video.muted = !video.muted;
+    video.volume = 1;
+    video.play().catch(() => {});
+    syncSoundButton();
+
+    if (event && event.pointerType !== undefined) {
+      soundToggle.blur();
+    }
+  }
+
   selectVideoSource();
+  syncSoundButton();
   window.addEventListener("resize", selectVideoSource);
-  window.addEventListener("pointerdown", playWithSound, { once: true });
-  window.addEventListener("keydown", playWithSound, { once: true });
+  soundToggle?.addEventListener("click", toggleSound);
 })();

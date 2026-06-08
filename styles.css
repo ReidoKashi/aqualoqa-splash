@@ -59,6 +59,76 @@ body {
   box-shadow: var(--frame-shadow);
 }
 
+.sound-toggle {
+  position: absolute;
+  right: clamp(10px, 1vw, 18px);
+  bottom: clamp(10px, 1vw, 18px);
+  z-index: 2;
+  display: grid;
+  width: clamp(30px, 2.35vw, 42px);
+  height: clamp(30px, 2.35vw, 42px);
+  padding: 0;
+  place-items: center;
+  color: rgba(255, 255, 255, 0.86);
+  background: rgba(20, 24, 28, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(3px);
+  transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.video-frame:hover .sound-toggle,
+.video-frame:focus-within .sound-toggle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sound-toggle:hover,
+.sound-toggle:focus-visible {
+  color: rgba(255, 255, 255, 0.96);
+  background: rgba(20, 24, 28, 0.28);
+}
+
+@media (hover: none) {
+  .sound-toggle {
+    opacity: 0.72;
+    transform: none;
+  }
+}
+
+.sound-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.64);
+  outline-offset: 3px;
+}
+
+.sound-toggle svg {
+  grid-area: 1 / 1;
+  width: 54%;
+  height: 54%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.sound-toggle svg path:first-child {
+  fill: currentColor;
+  stroke: none;
+}
+
+.sound-toggle .icon-sound,
+.sound-toggle.is-unmuted .icon-muted {
+  opacity: 0;
+}
+
+.sound-toggle.is-unmuted .icon-sound {
+  opacity: 1;
+}
+
 .video-mask {
   width: calc(100% + 2px);
   height: calc(100% + 2px);
@@ -89,5 +159,12 @@ body {
     height: auto;
     aspect-ratio: 548 / 960;
     transform: translate(-50%, -50%);
+  }
+
+  .sound-toggle {
+    right: 10px;
+    bottom: 10px;
+    width: 34px;
+    height: 34px;
   }
 }
