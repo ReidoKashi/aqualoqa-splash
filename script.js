@@ -31,8 +31,17 @@
 
     video.src = src;
     video.load();
+    playWithSound();
+  }
+
+  function playWithSound() {
+    video.muted = false;
+    video.volume = 1;
+    video.play().catch(() => {});
   }
 
   selectVideoSource();
   window.addEventListener("resize", selectVideoSource);
+  window.addEventListener("pointerdown", playWithSound, { once: true });
+  window.addEventListener("keydown", playWithSound, { once: true });
 })();
