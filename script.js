@@ -31,7 +31,6 @@
 
     video.src = src;
     video.load();
-    video.play().catch(() => {});
   }
 
   selectVideoSource();
