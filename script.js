@@ -8,7 +8,7 @@
 
   const sources = [
     {
-      query: "(max-width: 640px)",
+      query: "(max-width: 640px) and (orientation: portrait)",
       src: video.dataset.mobileSrc,
     },
     {

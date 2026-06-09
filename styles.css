@@ -144,7 +144,7 @@ body {
   object-fit: cover;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px) and (orientation: portrait) {
   .stage {
     width: 100vw;
     height: 100svh;
@@ -156,6 +156,29 @@ body {
     width: min(82vw, calc(78svh * 548 / 960));
     height: auto;
     aspect-ratio: 548 / 960;
+    transform: translate(-50%, -50%);
+  }
+
+  .sound-toggle {
+    right: 10px;
+    bottom: 10px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-height: 640px) and (orientation: landscape) {
+  .stage {
+    width: 100vw;
+    height: 100svh;
+  }
+
+  .video-frame {
+    left: 50%;
+    top: 50%;
+    width: min(78vw, calc(82svh * 1770 / 1080));
+    height: auto;
+    aspect-ratio: 1770 / 1080;
     transform: translate(-50%, -50%);
   }
 
