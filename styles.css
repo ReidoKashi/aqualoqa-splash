@@ -69,15 +69,14 @@ body {
   height: clamp(30px, 2.35vw, 42px);
   padding: 0;
   place-items: center;
-  color: rgba(255, 255, 255, 0.86);
-  background: rgba(20, 24, 28, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
-  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.78);
+  background: transparent;
+  border: 0;
   cursor: pointer;
   opacity: 0;
   transform: translateY(3px);
-  transition: opacity 180ms ease, transform 180ms ease, background-color 180ms ease, color 180ms ease;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.28));
+  transition: opacity 180ms ease, transform 180ms ease, color 180ms ease;
 }
 
 .video-frame:hover .sound-toggle,
@@ -89,7 +88,6 @@ body {
 .sound-toggle:hover,
 .sound-toggle:focus-visible {
   color: rgba(255, 255, 255, 0.96);
-  background: rgba(20, 24, 28, 0.28);
 }
 
 @media (hover: none) {
