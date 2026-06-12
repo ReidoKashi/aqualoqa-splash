@@ -37,6 +37,10 @@ body {
   overflow: hidden;
   background-color: #d7b376;
   background-image: url("./assets/bg.png");
+  background-image: image-set(
+    url("./assets/bg.webp") type("image/webp"),
+    url("./assets/bg.png") type("image/png")
+  );
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

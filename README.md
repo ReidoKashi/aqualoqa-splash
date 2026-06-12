@@ -20,6 +20,7 @@ Upload these files and folders together to any static host:
 - `styles.css`
 - `script.js`
 - `.nojekyll` if using GitHub Pages
+- `assets/bg.webp`
 - `assets/bg.png`
 - `assets/video-repeat.mp4`
 - `assets/video-mobile.mp4`
@@ -30,6 +31,11 @@ The site uses relative paths, so it can live at a domain root or inside a subpat
 
 - Desktop/tablet: `assets/video-repeat.mp4` at `1770 x 1080`
 - Mobile: `assets/video-mobile.mp4` at `548 x 960`
+
+## Background
+
+- Preferred: `assets/bg.webp`, lossless WebP
+- Fallback: `assets/bg.png`
 
 ## Audio Autoplay Note
 
